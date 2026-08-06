@@ -284,13 +284,13 @@ h1, h2, h3, h4 {
 .timeline-tab {
   display: flex; flex-direction: column; gap: 8px; text-align: left;
   background: none; border: none; border-top: 1px solid var(--border);
-  padding: 24px 16px; cursor: pointer; width: 100%;
+  padding: 24px 16px; cursor: pointer; width: 100%; color: var(--fg);
   border-left: 2px solid transparent;
 }
 .timeline-tab:first-child { border-top: none; }
 .timeline-tab:hover { background: var(--bg-alt); }
 .timeline-tab.active { border-left-color: var(--accent); background: var(--bg-alt); }
-.timeline-org { font-family: var(--display); font-weight: 700; font-size: 18px; }
+.timeline-org { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--fg); }
 .timeline-role { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--accent); }
 .timeline-date { font-size: 12px; color: var(--fg-dim); letter-spacing: 0.06em; }
 .tag-pill { font-size: 11px; color: var(--fg-dim); border: 1px solid var(--border); padding: 5px 10px; width: fit-content; }
