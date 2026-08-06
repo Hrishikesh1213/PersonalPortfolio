@@ -296,7 +296,8 @@ h1, h2, h3, h4 {
 .tag-pill { font-size: 11px; color: var(--fg-dim); border: 1px solid var(--border); padding: 5px 10px; width: fit-content; }
 .timeline-more-btn { margin-top: 24px; }
 .timeline-panel { padding: 8px 0; }
-.timeline-panel h3 { font-size: 20px; margin-bottom: 14px; }
+.timeline-panel h3 { font-size: 20px; margin-bottom: 4px; }
+.timeline-panel-org { color: var(--accent); font-size: 13px; margin-bottom: 14px; }
 .timeline-panel p { color: var(--fg-dim); font-size: 14px; margin: 8px 0; }
 .timeline-stack { margin-top: 14px; }
 
@@ -312,8 +313,9 @@ h1, h2, h3, h4 {
 .contact-title { font-size: clamp(48px, 9vw, 110px); font-weight: 700; line-height: 0.95; margin: 8px 0 20px; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; margin-top: 50px; }
 .contact-links { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
-.contact-links a { font-size: 14px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.contact-links a { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
 .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
+.contact-icon { width: 16px; height: 16px; flex-shrink: 0; }
 
 .contact-form { display: flex; flex-direction: column; gap: 20px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }

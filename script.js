@@ -144,6 +144,7 @@ function renderTimelinePanel(item) {
   const stack = item.stack ? `<div class="pills timeline-stack">${item.stack.map(s => `<span>${s}</span>`).join('')}</div>` : '';
   timelinePanelEl.innerHTML = `
     <h3>${item.role}</h3>
+    <p class="timeline-panel-org">${item.org}</p>
     ${bullets}
     ${stack}
   `;
@@ -202,10 +203,14 @@ document.getElementById('contact-label').textContent = D.contact.sectionLabel;
 document.getElementById('contact-title').innerHTML = D.contact.title.join('<br />');
 document.getElementById('contact-desc').innerHTML = D.contact.description;
 
+const ICON_EMAIL = `<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>`;
+const ICON_WHATSAPP = `<svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.1c-.22.62-1.29 1.19-1.78 1.24-.46.05-.87.22-2.93-.65-2.48-1.05-4.06-3.58-4.18-3.75-.12-.17-1-1.33-1-2.54 0-1.2.63-1.79.85-2.03.22-.24.48-.3.65-.3l.46.01c.15.01.34-.06.53.4.2.48.68 1.66.74 1.78.06.12.1.27.02.43-.08.16-.13.26-.26.4-.13.14-.27.32-.38.43-.12.12-.25.25-.11.5.15.25.68 1.12 1.46 1.82 1 .9 1.85 1.18 2.11 1.31.26.13.41.11.57-.05.16-.16.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.5.71 1.76.84.26.13.43.2.49.31.06.11.06.65-.16 1.27z"/></svg>`;
+const ICON_LINKEDIN = `<svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>`;
+
 const contactLinks = document.getElementById('contact-links');
-contactLinks.appendChild(el(`<a href="mailto:${D.profile.email}">${D.profile.email}</a>`));
-contactLinks.appendChild(el(`<a href="${D.profile.whatsappUrl}" target="_blank" rel="noopener">WHATSAPP</a>`));
-contactLinks.appendChild(el(`<a href="${D.profile.linkedin}" target="_blank" rel="noopener">LINKEDIN</a>`));
+contactLinks.appendChild(el(`<a href="mailto:${D.profile.email}">${ICON_EMAIL}${D.profile.email}</a>`));
+contactLinks.appendChild(el(`<a href="${D.profile.whatsappUrl}" target="_blank" rel="noopener">${ICON_WHATSAPP}WHATSAPP</a>`));
+contactLinks.appendChild(el(`<a href="${D.profile.linkedin}" target="_blank" rel="noopener">${ICON_LINKEDIN}LINKEDIN</a>`));
 contactLinks.appendChild(el(`<a href="${D.profile.resumeViewUrl}" target="_blank" rel="noopener">VIEW RESUME &#8599;</a>`));
 contactLinks.appendChild(el(`<a href="${D.profile.resumeDownloadUrl}">DOWNLOAD RESUME &#8595;</a>`));
 
