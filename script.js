@@ -133,44 +133,52 @@ if (extraProjects.length) {
 document.getElementById('trajectory-label').textContent = D.trajectory.sectionLabel;
 document.getElementById('trajectory-heading').innerHTML = D.trajectory.heading.join('<br />');
 
-const timelineEl = document.getElementById('timeline');
-function buildTimelineItem(item, extra) {
+const timelineTabsEl = document.getElementById('timeline-tabs');
+const timelinePanelEl = document.getElementById('timeline-panel');
+const timelineMoreBtn = document.getElementById('timeline-more-btn');
+const trajectoryAllItems = [...D.trajectory.items, ...(D.trajectory.moreItems || [])];
+const TIMELINE_INITIAL_COUNT = 3;
+
+function renderTimelinePanel(item) {
   const bullets = item.bullets.map(b => `<p>&rarr; ${b}</p>`).join('');
   const stack = item.stack ? `<div class="pills timeline-stack">${item.stack.map(s => `<span>${s}</span>`).join('')}</div>` : '';
-  const node = el(`
-    <div class="timeline-item reveal">
-      <div class="timeline-marker">
-        <span class="timeline-date">${item.date}</span>
-        <span class="timeline-org">${item.org}</span>
-        <span class="tag-pill">${item.badge}</span>
-      </div>
-      <div class="timeline-content">
-        <h3>${item.role}</h3>
-        ${bullets}
-        ${stack}
-      </div>
-    </div>
-  `);
-  if (extra) node.style.display = 'none';
-  return node;
+  timelinePanelEl.innerHTML = `
+    <h3>${item.role}</h3>
+    ${bullets}
+    ${stack}
+  `;
 }
-D.trajectory.items.forEach(item => timelineEl.appendChild(buildTimelineItem(item, false)));
 
-const trajectoryMoreBtn = document.getElementById('trajectory-more-btn');
-const trajectoryMoreItems = D.trajectory.moreItems || [];
-if (trajectoryMoreItems.length) {
-  const extraNodes = trajectoryMoreItems.map(item => {
-    const node = buildTimelineItem(item, true);
-    timelineEl.appendChild(node);
-    return node;
+const timelineTabButtons = trajectoryAllItems.map((item, i) => {
+  const extra = i >= TIMELINE_INITIAL_COUNT;
+  const tab = el(`
+    <button class="timeline-tab${i === 0 ? ' active' : ''}" type="button">
+      <span class="timeline-org">${item.org}</span>
+      <span class="timeline-role">${item.role}</span>
+      <span class="timeline-date">${item.date}</span>
+      <span class="tag-pill">${item.badge}</span>
+    </button>
+  `);
+  tab.addEventListener('click', () => {
+    timelineTabButtons.forEach(b => b.classList.remove('active'));
+    tab.classList.add('active');
+    renderTimelinePanel(item);
   });
-  trajectoryMoreBtn.hidden = false;
-  trajectoryMoreBtn.textContent = 'SHOW MORE ↓';
-  let trajectoryExpanded = false;
-  trajectoryMoreBtn.addEventListener('click', () => {
-    trajectoryExpanded = !trajectoryExpanded;
-    extraNodes.forEach(n => { n.style.display = trajectoryExpanded ? '' : 'none'; });
-    trajectoryMoreBtn.textContent = trajectoryExpanded ? 'SHOW LESS ↑' : 'SHOW MORE ↓';
+  if (extra) tab.style.display = 'none';
+  timelineTabsEl.appendChild(tab);
+  return tab;
+});
+
+if (trajectoryAllItems.length) renderTimelinePanel(trajectoryAllItems[0]);
+
+if (trajectoryAllItems.length > TIMELINE_INITIAL_COUNT) {
+  timelineMoreBtn.hidden = false;
+  timelineMoreBtn.textContent = 'SHOW MORE ↓';
+  let timelineExpanded = false;
+  timelineMoreBtn.addEventListener('click', () => {
+    timelineExpanded = !timelineExpanded;
+    timelineTabButtons.slice(TIMELINE_INITIAL_COUNT).forEach(b => { b.style.display = timelineExpanded ? '' : 'none'; });
+    timelineMoreBtn.textContent = timelineExpanded ? 'SHOW LESS ↑' : 'SHOW MORE ↓';
   });
 }
 
@@ -196,6 +204,7 @@ document.getElementById('contact-desc').innerHTML = D.contact.description;
 
 const contactLinks = document.getElementById('contact-links');
 contactLinks.appendChild(el(`<a href="mailto:${D.profile.email}">${D.profile.email}</a>`));
+contactLinks.appendChild(el(`<a href="${D.profile.whatsappUrl}" target="_blank" rel="noopener">WHATSAPP</a>`));
 contactLinks.appendChild(el(`<a href="${D.profile.linkedin}" target="_blank" rel="noopener">LINKEDIN</a>`));
 contactLinks.appendChild(el(`<a href="${D.profile.resumeViewUrl}" target="_blank" rel="noopener">VIEW RESUME &#8599;</a>`));
 contactLinks.appendChild(el(`<a href="${D.profile.resumeDownloadUrl}">DOWNLOAD RESUME &#8595;</a>`));

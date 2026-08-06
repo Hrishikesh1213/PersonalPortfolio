@@ -278,19 +278,26 @@ h1, h2, h3, h4 {
 .modal-close:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ---------- TIMELINE ---------- */
-.timeline { display: flex; flex-direction: column; }
-.timeline-item {
-  display: grid; grid-template-columns: 280px 1fr; gap: 40px;
-  padding: 36px 0; border-top: 1px solid var(--border);
-  position: relative;
+.timeline { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+.timeline-tabs-col { display: flex; flex-direction: column; }
+.timeline-tabs { display: flex; flex-direction: column; }
+.timeline-tab {
+  display: flex; flex-direction: column; gap: 8px; text-align: left;
+  background: none; border: none; border-top: 1px solid var(--border);
+  padding: 24px 16px; cursor: pointer; width: 100%;
+  border-left: 2px solid transparent;
 }
-.timeline-item:first-child { border-top: none; }
-.timeline-marker { display: flex; flex-direction: column; gap: 10px; }
-.timeline-date { font-size: 12px; color: var(--accent); letter-spacing: 0.06em; }
+.timeline-tab:first-child { border-top: none; }
+.timeline-tab:hover { background: var(--bg-alt); }
+.timeline-tab.active { border-left-color: var(--accent); background: var(--bg-alt); }
 .timeline-org { font-family: var(--display); font-weight: 700; font-size: 18px; }
+.timeline-role { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--accent); }
+.timeline-date { font-size: 12px; color: var(--fg-dim); letter-spacing: 0.06em; }
 .tag-pill { font-size: 11px; color: var(--fg-dim); border: 1px solid var(--border); padding: 5px 10px; width: fit-content; }
-.timeline-content h3 { font-size: 20px; margin-bottom: 14px; }
-.timeline-content p { color: var(--fg-dim); font-size: 14px; margin: 8px 0; }
+.timeline-more-btn { margin-top: 24px; }
+.timeline-panel { padding: 8px 0; }
+.timeline-panel h3 { font-size: 20px; margin-bottom: 14px; }
+.timeline-panel p { color: var(--fg-dim); font-size: 14px; margin: 8px 0; }
 .timeline-stack { margin-top: 14px; }
 
 /* ---------- ACHIEVEMENTS / WRITING ---------- */
@@ -342,7 +349,7 @@ h1, h2, h3, h4 {
   .toolkit-grid { grid-template-columns: 1fr; }
   .toolkit-card, .toolkit-card:nth-child(2n) { border-right: none; }
   .work-grid { grid-template-columns: 1fr; }
-  .timeline-item { grid-template-columns: 1fr; gap: 16px; }
+  .timeline { grid-template-columns: 1fr; gap: 16px; }
   .form-row { grid-template-columns: 1fr; }
 }
 
