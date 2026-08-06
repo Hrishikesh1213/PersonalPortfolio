@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Karra Hrishikesh Reddy — Resume</title>
+<style>
+  :root { --fg:#111; --dim:#444; --rule:#111; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--fg);
+    max-width: 780px;
+    margin: 40px auto;
+    padding: 0 24px 60px;
+    line-height: 1.45;
+    font-size: 14.5px;
+  }
+  header { text-align: center; margin-bottom: 18px; }
+  header h1 { font-size: 26px; letter-spacing: 0.04em; margin: 0 0 8px; text-transform: uppercase; }
+  header .contact { font-size: 13px; color: var(--dim); }
+  header .contact a { color: var(--dim); text-decoration: none; }
+  section { margin-bottom: 16px; }
+  h2 {
+    font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin: 0 0 10px;
+  }
+  .row { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 2px; }
+  .row .left { font-weight: bold; }
+  .row .right { font-style: italic; text-align: right; white-space: nowrap; color: var(--dim); }
+  .sub { font-style: italic; color: var(--dim); font-size: 13.5px; margin-bottom: 4px; }
+  ul { margin: 4px 0 12px; padding-left: 20px; }
+  ul.tight li { margin-bottom: 4px; }
+  ul ul { margin: 4px 0; }
+  .skills li { margin-bottom: 6px; }
+  .print-bar {
+    max-width: 780px; margin: 0 auto 20px; padding: 0 24px;
+    display: flex; justify-content: flex-end;
+  }
+  .print-bar button {
+    font-family: Georgia, serif; font-size: 13px; padding: 8px 16px;
+    border: 1px solid #111; background: #fff; cursor: pointer;
+  }
+  @media print { .print-bar { display: none; } body { margin: 0; } }
+</style>
+</head>
+<body>
+
+<div class="print-bar"><button onclick="window.print()">Print / Save as PDF</button></div>
+
+<header>
+  <h1>Karra Hrishikesh Reddy</h1>
+  <div class="contact">
+    +91-9381567454 &nbsp;·&nbsp;
+    <a href="mailto:karra.hrishikesh@gmail.com">karra.hrishikesh@gmail.com</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/hrishikeshkarra1213/" target="_blank" rel="noopener">linkedin.com/in/hrishikeshkarra1213</a>
+  </div>
+</header>
+
+<section>
+  <h2>Education</h2>
+  <div class="row">
+    <span class="left">Indian Institute of Technology Bhubaneswar</span>
+    <span class="right">Bhubaneswar, India</span>
+  </div>
+  <div class="row">
+    <span class="sub">Dual Degree, B.Tech + M.Tech in Computer Science | GPA: 8.04 / 10.00</span>
+    <span class="right">Aug 2018 - May 2023</span>
+  </div>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <ul class="skills tight">
+    <li><b>Languages &amp; Core Ecosystems:</b> Java (Spring Boot, Dropwizard), Python, SQL</li>
+    <li><b>Databases &amp; Caching:</b> PostgreSQL, Redis, ClickHouse, HBase, MongoDB, Bigtable, BigQuery, NoSQL</li>
+    <li><b>Cloud &amp; Distributed Systems:</b> GCP, Kubernetes, Docker, Kafka, Pub/Sub, Spark, Flink, Airflow</li>
+    <li><b>Applied AI:</b> LLMs, AI Agents, Prompt Engineering</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Work Experience</h2>
+
+  <div class="row"><span class="left">Super.Money (Flipkart Group)</span><span class="right">Feb 2024 - Present</span></div>
+  <div class="sub">Software Development Engineer 2</div>
+  <ul class="tight">
+    <li><b>AI-Powered Figma-to-Code Generation Platform</b> (Reduced development effort by 2+ days/widget)
+      <ul>
+        <li>Designed an AI-native developer productivity platform using multi-agent LLMs with a Figma MCP server to autonomously generate standardized API contracts, backend boilerplate, and frontend UI code from design components, cutting design-to-PR handoff time from 4+ days to under 2 days.</li>
+        <li>Automated a multi-repo pull request pipeline that eliminated FE/BE contract negotiation and cross-team synchronization bottlenecks, shortening the widget development lifecycle by 60%.</li>
+      </ul>
+    </li>
+    <li><b>Central Page and URL Service</b> (Served 10M+ daily active users)
+      <ul>
+        <li>Built a centralized, high-throughput Page and URL Service delivering personalized content based on user cohorts, active experiments, and user journeys, processing 4,500+ QPS at sub-10ms P99 latency via multi-tier Redis-Caffeine caching.</li>
+        <li>Configured a zero-code platform (with RBAC and audit trails) alongside a real-time signal ingestion pipeline using GCP Pub/Sub and Bigtable, allowing non-technical teams to manage widget layouts without engineering involvement and compressing content rollout cycles by 30%.</li>
+      </ul>
+    </li>
+    <li><b>Cross-Sell Gateway with Personalization, A/B Testing, and Template Service</b>
+      <ul>
+        <li>Implemented a high-throughput Spring Boot microservice for in-app cross-selling with user-level personalization, sustaining 3,000 QPS at sub-80ms latency with rate-limiting mechanisms across 5+ touchpoints.</li>
+        <li>Established a central A/B testing architecture spanning the orchestrator and 20 gateways, allowing downstream services to run data-driven content experiments on their own and compressing product iteration cycles by 3x.</li>
+        <li>Drove the adoption of core financial products—yielding 210,000+ credit cards and 50,000+ Fixed Deposits—by engineering end-to-end user journeys featuring session-persistent onboarding, automated payment flows, and seamless partner API integrations.</li>
+        <li>Launched an on-demand credit score feature granting 6 million+ users access to their financial reports, establishing a primary data pipeline that powered personal loan and credit card cross-sell and reward strategies.</li>
+      </ul>
+    </li>
+    <li><b>Cohort Engine, In-App Intent Payments, and Template Service</b> (Powered personalization for 6M+ users)
+      <ul>
+        <li>Constructed a data processing platform on Apache Airflow that aggregated raw event data into segmented user cohorts, supporting 1,700 QPS at sub-20ms latency and powering cohorting across 3 downstream gateways.</li>
+        <li>Streamlined the intent payment flow to unify UPI transactions across Credit Cards, Fixed Deposits, and Flights within a single checkout experience, trimming the payment drop rate by 12%.</li>
+        <li>Delivered a zero-deployment content personalization service for app and CRM channels at sub-5ms latency, letting product teams configure templates from an admin console and removing engineering dependency by 100%.</li>
+        <li>Spearheaded the integration of Axis Bank into the core lending platform — now accounting for 36% of total loan disbursals — and introduced a cross-lender deduplication pipeline that trimmed late-stage application rejections by 30%.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="row"><span class="left">Flipkart Health Plus (Flipkart Group)</span><span class="right">Jun 2023 - Jan 2024</span></div>
+  <div class="sub">Software Development Engineer 1</div>
+  <ul class="tight">
+    <li>Expanded product catalog coverage by onboarding 11 new category schemas and adding 100,000+ product listings, increasing catalog depth for high-traffic search queries.</li>
+    <li>Accelerated user conversion by integrating a "Best Price" API into search and product detail pages, surfacing the optimal coupon at checkout and raising purchase conversion by an estimated 8–12% across eligible SKUs.</li>
+    <li>Authored 15+ RESTful APIs for the Marketplace gateway covering returns, shipment processing, and order cancellations, lowering average order resolution time by 20%.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Internships</h2>
+
+  <div class="row"><span class="left">Flipkart Internet Pvt. Ltd.</span><span class="right">May 2022 - Jul 2022</span></div>
+  <ul class="tight">
+    <li>Boosted developer productivity by building an internal UI for job scheduling APIs, slashing average scheduling task completion time by 70% and eliminating CLI dependency for 30+ engineers.</li>
+    <li>Strengthened system reliability by implementing exponential back-off retry logic for ZooKeeper lock acquisition, halving lock contention failures by 90%+ and raising distributed job success rate to 99.9%.</li>
+  </ul>
+
+  <div class="row"><span class="left">PTCG India Pvt. Ltd.</span><span class="right">Sep 2021 - Jan 2022</span></div>
+  <ul class="tight">
+    <li>Deployed an MVP conversational chatbot that automatically engaged mortgage leads via SMS/WhatsApp upon database entry, collected qualification data, and scheduled advisor appointments — saving mortgage advisors 50 hours/week and slashing lead response time from 24 hours to under 5 min.</li>
+  </ul>
+
+  <div class="row"><span class="left">HCL Technologies</span><span class="right">May 2021 - Jul 2021</span></div>
+  <ul class="tight">
+    <li>Integrated HCL Compass with IBM Watson Assistant and Discovery to deliver real-time change notifications across 5+ MS Teams and Slack channels, boosting incident awareness speed by 40% for 3 cross-functional engineering teams.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Achievements and Leadership</h2>
+  <ul class="tight">
+    <li><b>Engineering Excellence Award</b>: Recognized company-wide for designing a scalable A/B testing framework and delivering a homepage revamp that generated engagement growth across 8+ product verticals.</li>
+    <li>Secured AIR 1857 in JEE Mains 2018 and AIR 2357 in JEE Advanced 2018, ranking in the top 1.3% of 1.1 million candidates.</li>
+    <li>Ranked among the top 2,000 globally on HackerRank; achieved AIR 10 and AIR 19 in SICHO for two consecutive years.</li>
+    <li>Served as Secretary and Governor, Nakshatra — Student's Gymkhana, IIT Bhubaneswar; directed a team of 60 members across 10+ events, workshops, and competitions, reaching 2,000+ students annually.</li>
+    <li>Served as Public Relations Coordinator, E-Summit — IIT Bhubaneswar; led external outreach to 50+ companies and secured sponsorships contributing to a 3x growth in event budget.</li>
+  </ul>
+</section>
+
+</body>
+</html>

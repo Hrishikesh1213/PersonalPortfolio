@@ -1,0 +1,262 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{ragged2e}
+
+\urlstyle{rm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{4.09003pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\resumeSubheadingSingle}[2]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+%-----------------------------
+%%%%%%  CV STARTS HERE  %%%%%%
+
+\begin{document}
+
+%----------HEADING----------%
+\begin{center}
+    {\Huge \textsc{Karra Hrishikesh Reddy}} \\ \vspace{8pt}
+    \small +91-9381567454 \quad
+    \href{mailto:karra.hrishikesh@gmail.com}{karra.hrishikesh@gmail.com} \quad
+    \href{https://www.linkedin.com/in/hrishikeshkarra1213/}{linkedin.com/in/hrishikeshkarra1213}
+\end{center}
+\vspace{2pt}
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \vspace{6pt}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Indian Institute of Technology Bhubaneswar}{Bhubaneswar, India}
+      {Dual Degree, B.Tech + M.Tech in Computer Science \textbar{} GPA: 8.04 / 10.00}{Aug 2018 - May 2023}
+  \resumeSubHeadingListEnd
+\vspace{2pt}
+
+%--------------------Technical Skills--------------------
+\section{Technical Skills}
+\resumeSubHeadingListStart
+
+    \item \textbf{Languages \& Core Ecosystems:} Java (Spring Boot, Dropwizard), Python, SQL
+    \item \textbf{Databases \& Caching:} PostgreSQL, Redis, ClickHouse, HBase, MongoDB, Bigtable, BigQuery, NoSQL
+    \item \textbf{Cloud \& Distributed Systems:} GCP, Kubernetes, Docker, Kafka, Pub/Sub, Spark, Flink, Airflow
+    \item \textbf{Applied AI:} LLMs, AI Agents, Prompt Engineering
+
+\resumeSubHeadingListEnd
+
+\vspace{2pt}
+
+%----------WORK EXPERIENCE-----------------
+\section{Work Experience}
+  \vspace{6pt}
+
+\resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Super.Money (Flipkart Group)}{Feb 2024 - Present}
+      {Software Development Engineer 2}{}
+      \resumeItemListStart
+
+        % ---- Figma Platform ----
+        \item \justifying \textbf{AI-Powered Figma-to-Code Generation Platform (Reduced development effort by 2+ days/widget)}
+          \resumeItemListStart
+            \item \justifying
+              Designed an AI-native developer productivity platform using multi-agent \textbf{LLMs} with a Figma MCP server to autonomously generate standardized API contracts, backend boilerplate, and frontend UI code from design components, cutting design-to-PR handoff time from \textbf{4+ days} to under \textbf{2 days}.
+            \item \justifying
+              % CHANGED: "accelerating" → "shortening" (was used 3x total)
+              Automated a multi-repo pull request pipeline that eliminated FE/BE contract negotiation and cross-team synchronization bottlenecks, shortening the widget development lifecycle by \textbf{60\%}.
+          \resumeItemListEnd
+
+        \vspace{4pt}
+
+        % ---- Page and URL Service ----
+        \item \justifying \textbf{Central Page and URL Service (Served 10M+ daily active users)}
+          \resumeItemListStart
+            \item \justifying
+              % CHANGED: "Built" kept here (first use); "high-performance centralized" → simplified
+              Built a centralized, high-throughput Page and URL Service delivering personalized content based on user cohorts, active experiments, and user journeys, processing \textbf{4,500+ QPS} at \textbf{sub-10ms} P99 latency via multi-tier Redis-Caffeine caching.
+            \item \justifying
+              % CHANGED: "Developed" → "Configured" (was used 2x); "autonomously" → "without engineering involvement" (was used 3x); "accelerating" → "compressing"
+              Configured a zero-code platform (with RBAC and audit trails) alongside a real-time signal ingestion pipeline using GCP Pub/Sub and Bigtable, allowing non-technical teams to manage widget layouts without engineering involvement and compressing content rollout cycles by \textbf{30\%}.
+          \resumeItemListEnd
+
+        \vspace{4pt}
+
+        % ---- Cross-Sell Gateway ----
+        \item \justifying \textbf{Cross-Sell Gateway with Personalization, A/B Testing, and Template Service}
+          \resumeItemListStart
+            \item \justifying
+              % CHANGED: "improving" → "lifting" (was used 3x); "multiple" kept (hard to avoid here)
+              Implemented a high-throughput Spring Boot microservice for in-app cross-selling with user-level personalization, sustaining \textbf{3,000 QPS} at \textbf{sub-80ms} latency with rate-limiting mechanisms across \textbf{5+} touchpoints.
+            \item \justifying
+              % CHANGED: "enabling" → "allowing" (was used 3x); "accelerating" already changed above
+              Established a central A/B testing architecture spanning the orchestrator and \textbf{20 gateways}, allowing downstream services to run data-driven content experiments on their own and compressing product iteration cycles by \textbf{3x}.
+
+            \vspace{4pt}
+            \item \justifying
+            Drove the adoption of core financial products—yielding \textbf{210,000+} credit cards and \textbf{50,000+} Fixed Deposits—by engineering end-to-end user journeys featuring session-persistent onboarding, automated payment flows, and seamless partner API integrations.
+
+            \vspace{4pt}
+            \item \justifying
+              % CHANGED: "directly" removed (was used 2x); sentence tightened
+              Launched an on-demand credit score feature granting \textbf{6 million+} users access to their financial reports, establishing a primary data pipeline that powered personal loan and credit card cross-sell and reward strategies.
+          \resumeItemListEnd
+
+        \vspace{4pt}
+
+        \newpage
+
+        % ---- Cohort Engine ----
+        \item \justifying \textbf{Cohort Engine, In-App Intent Payments, and Template Service (Powered personalization for 6M+ users)}
+          \resumeItemListStart
+            \item \justifying
+              Constructed a data processing platform on Apache Airflow that aggregated raw event data into segmented user cohorts, supporting \textbf{1,700 QPS} at \textbf{sub-20ms} latency and powering cohorting across \textbf{3} downstream gateways.
+            \vspace{4pt}
+            \item \justifying
+              % CHANGED: "cutting" → "slashing" (was used 3x); "Streamlined" kept
+              Streamlined the intent payment flow to unify UPI transactions across Credit Cards, Fixed Deposits, and Flights within a single checkout experience, trimming the payment drop rate by \textbf{12\%}.
+            \vspace{4pt}
+            \item \justifying
+              % CHANGED: "enabling" → "letting"; "directly" removed; "removing" kept (only use)
+              Delivered a zero-deployment content personalization service for app and CRM channels at \textbf{sub-5ms} latency, letting product teams configure templates from an admin console and removing engineering dependency by \textbf{100\%}.
+            \vspace{4pt}
+            \item \justifying
+              % CHANGED: "Drove" → "Spearheaded" (was used 2x as opener); "reducing" → "trimming"
+              Spearheaded the integration of Axis Bank into the core lending platform --- now accounting for \textbf{36\%} of total loan disbursals --- and introduced a cross-lender deduplication pipeline that trimmed late-stage application rejections by \textbf{30\%}.
+          \resumeItemListEnd
+
+      \resumeItemListEnd
+
+  \vspace{6pt}
+
+    \resumeSubheading
+      {Flipkart Health Plus (Flipkart Group)}{Jun 2023 - Jan 2024}
+      {Software Development Engineer 1}{}
+      \resumeItemListStart
+        \item \justifying
+          % CHANGED: "directly" removed; "adding approximately" → "adding"
+          Expanded product catalog coverage by onboarding \textbf{11} new category schemas and adding \textbf{100,000+} product listings, increasing catalog depth for high-traffic search queries.
+        \item \justifying
+          % CHANGED: "improving" → "lifting"; "cutting" already used — kept "lifting"
+          Accelerated user conversion by integrating a ``Best Price'' API into search and product detail pages, surfacing the optimal coupon at checkout and raising purchase conversion by an estimated \textbf{8--12\%} across eligible SKUs.
+        \item \justifying
+          % CHANGED: "Developed" → "Authored" (was used 2x as opener); "reducing" → "lowering"
+          Authored \textbf{15+} RESTful APIs for the Marketplace gateway covering returns, shipment processing, and order cancellations, lowering average order resolution time by \textbf{20\%}.
+      \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{2pt}
+
+%----------INTERNSHIPS-----------------
+\section{Internships}
+    \vspace{6pt}
+\resumeSubHeadingListStart
+
+    \resumeSubheadingSingle
+      {Flipkart Internet Pvt. Ltd.}{May 2022 - Jul 2022}
+        \resumeItemListStart
+            \item \justifying
+              % CHANGED: "reducing" → "cutting" (one of the 4 "reducing"s); "improving" → "raising"
+              Boosted developer productivity by building an internal UI for job scheduling APIs, slashing average scheduling task completion time by \textbf{70\%} and eliminating CLI dependency for \textbf{30+} engineers.
+            \item \justifying
+              % CHANGED: "improving" → "raising"; "reducing" already replaced above
+              Strengthened system reliability by implementing exponential back-off retry logic for ZooKeeper lock acquisition, halving lock contention failures by \textbf{90\%+} and raising distributed job success rate to \textbf{99.9\%}.
+        \resumeItemListEnd
+    \vspace{2pt}
+
+    \resumeSubheadingSingle
+      {PTCG India Pvt. Ltd.}{Sep 2021 - Jan 2022}
+        \resumeItemListStart
+            \item \justifying
+              % CHANGED: "Built" → "Shipped" (was used 2x as opener); "improving" → "slashing"
+              Deployed an MVP conversational chatbot that automatically engaged mortgage leads via SMS, WhatsApp upon database entry, collected qualification data, and scheduled advisor appointments --- saving mortgage advisors \textbf{50 hours/week} and slashing lead response time from \textbf{24 hours} to under \textbf{5 min}.
+        \resumeItemListEnd
+    \vspace{2pt}
+
+    \resumeSubheadingSingle
+      {HCL Technologies}{May 2021 - Jul 2021}
+        \resumeItemListStart
+            \item \justifying
+              % CHANGED: "improving" → "lifting" (was used 3x); no other changes needed here
+              Integrated HCL Compass with IBM Watson Assistant and Discovery to deliver real-time change notifications across \textbf{5+} MS Teams and Slack channels, boosting incident awareness speed by \textbf{40\%} for \textbf{3} cross-functional engineering teams.
+        \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{2pt}
+
+%--------------------Achievements--------------------
+\section{Achievements and Leadership}
+\vspace{6pt}
+\resumeSubHeadingListStart
+    \item \justifying \textbf{Engineering Excellence Award}: Recognized company-wide for designing a scalable A/B testing framework and delivering a homepage revamp that generated engagement growth across \textbf{8+} product verticals.
+
+    \item \justifying Secured \textbf{AIR 1857} in JEE Mains 2018 and \textbf{AIR 2357} in JEE Advanced 2018, ranking in the top 1.3\% of 1.1 million candidates.
+
+    \item \justifying Ranked among the \textbf{top 2,000} globally on HackerRank; achieved \textbf{AIR 10} and \textbf{AIR 19} in SICHO for two consecutive years.
+
+    \item \justifying Served as \textbf{Secretary and Governor, Nakshatra} --- Student's Gymkhana, IIT Bhubaneswar; directed a team of \textbf{60} members across \textbf{10+} events, workshops, and competitions, reaching \textbf{2,000+} students annually.
+
+    \item \justifying Served as \textbf{Public Relations Coordinator, E-Summit} --- IIT Bhubaneswar; led external outreach to \textbf{50+} companies and secured sponsorships contributing to a \textbf{3x} growth in event budget.
+\resumeSubHeadingListEnd
+
+\end{document}
