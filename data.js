@@ -21,8 +21,8 @@ const SITE_DATA = {
   nav: [
     { label: "About", href: "#manifesto" },
     { label: "Skills", href: "#toolkit" },
-    { label: "Work", href: "#work" },
     { label: "Experience", href: "#trajectory" },
+    { label: "Work", href: "#work" },
     { label: "Achievements", href: "#achievements" },
     { label: "Contact", href: "#contact" },
   ],
@@ -59,7 +59,7 @@ const SITE_DATA = {
     details: [
       { label: "Name", value: "Karra Hrishikesh Reddy" },
       { label: "Education", value: "Dual Degree (B.Tech + M.Tech), CS — IIT Bhubaneswar" },
-      { label: "Experience", value: "SDE-2, Super.Money (Flipkart Group)" },
+      { label: "Experience", value: "3+ years" },
       { label: "Email", value: "karra.hrishikesh@gmail.com", href: "mailto:karra.hrishikesh@gmail.com" },
       { label: "Phone", value: "+91 93815 67454", href: "tel:+919381567454" },
     ],
@@ -77,13 +77,17 @@ const SITE_DATA = {
     ],
   },
 
+  // Each project renders as a small clickable card (brief + tag). Click opens
+  // a modal with the full description/stats/pills. First 8 show by default,
+  // split 4-left/4-right; anything past that sits behind "Show more".
   work: {
-    sectionLabel: "[ 02 ] — SELECTED WORK",
+    sectionLabel: "[ 03 ] — SELECTED WORK",
     heading: ["Systems that", "carry weight."],
     projects: [
       {
-        year: "2025", tag: "LLM · FIGMA MCP", tagId: "P-01", viz: "viz-1", reverse: false,
+        year: "2025", tag: "LLM · FIGMA MCP", tagId: "P-01",
         title: "AI-Powered Figma-to-Code Platform",
+        brief: "Multi-agent LLM platform that generates API contracts, backend and frontend code straight from Figma designs.",
         description: "Multi-agent LLM platform with a Figma MCP server that autonomously generates API contracts, " +
           "backend boilerplate and frontend UI straight from design components — cutting design-to-PR " +
           "handoff from 4+ days to under 2.",
@@ -95,8 +99,9 @@ const SITE_DATA = {
         pills: ["LLMs", "Figma MCP", "Multi-Agent", "Automation"],
       },
       {
-        year: "2024", tag: "REDIS · CAFFEINE", tagId: "P-02", viz: "viz-2", reverse: true,
+        year: "2024", tag: "REDIS · CAFFEINE", tagId: "P-02",
         title: "Central Page &amp; URL Service",
+        brief: "High-throughput personalization service serving 10M+ users via multi-tier Redis-Caffeine caching.",
         description: "Centralized, high-throughput service delivering personalized content by user cohort and " +
           "active experiment via multi-tier Redis-Caffeine caching, plus a zero-code RBAC'd admin " +
           "platform fed by a GCP Pub/Sub + Bigtable signal pipeline.",
@@ -108,8 +113,9 @@ const SITE_DATA = {
         pills: ["Redis", "Caffeine", "GCP Pub/Sub", "Bigtable"],
       },
       {
-        year: "2024", tag: "SPRING BOOT", tagId: "P-03", viz: "viz-3", reverse: false,
+        year: "2024", tag: "SPRING BOOT", tagId: "P-03",
         title: "Cross-Sell Gateway &amp; A/B Platform",
+        brief: "Spring Boot cross-sell microservice with a central A/B testing platform spanning 20+ gateways.",
         description: "High-throughput microservice for in-app cross-selling with a central A/B testing architecture " +
           "spanning 20+ gateways — driving adoption of core financial products and an on-demand credit " +
           "score feature for 6M+ users.",
@@ -121,8 +127,9 @@ const SITE_DATA = {
         pills: ["Spring Boot", "A/B Testing", "Rate Limiting"],
       },
       {
-        year: "2023", tag: "AIRFLOW · KAFKA", tagId: "P-04", viz: "viz-4", reverse: true,
+        year: "2023", tag: "AIRFLOW · KAFKA", tagId: "P-04",
         title: "Cohort Engine &amp; Intent Payments",
+        brief: "Airflow-based cohorting platform plus a unified UPI intent-payment flow across products.",
         description: "Data platform on Apache Airflow aggregating raw events into segmented user cohorts, plus a " +
           "unified UPI intent-payment flow across Credit Cards, Fixed Deposits and Flights in a single " +
           "checkout — and the Axis Bank lending integration that followed.",
@@ -136,35 +143,60 @@ const SITE_DATA = {
     ],
   },
 
+  // "items" always show. "moreItems" are revealed by the Show More button.
   trajectory: {
-    sectionLabel: "[ 03 ] — TRAJECTORY",
+    sectionLabel: "[ 02 ] — TRAJECTORY",
     heading: ["Where I've", "shipped."],
     items: [
       {
         date: "FEB 2024 — PRESENT", org: "Super.Money (Flipkart Group)", badge: "10M+ DAU",
         role: "Software Development Engineer 2",
         bullets: [
-          "Designed an AI-native Figma-to-code platform, cutting design-to-PR handoff from 4+ days to under 2.",
-          "Own the Central Page &amp; URL Service: 4,500+ QPS at sub-10ms P99 via Redis-Caffeine caching.",
-          "Built the Cross-Sell Gateway and A/B platform behind 210K+ credit cards and 50K+ Fixed Deposits.",
-          "Shipped an on-demand credit score feature reaching 6M+ users.",
+          "AI-Powered Figma-to-Code Platform: designed a multi-agent LLM system with a Figma MCP server that autonomously generates API contracts, backend boilerplate and frontend UI, cutting design-to-PR handoff from 4+ days to under 2 and shortening the widget lifecycle by 60%.",
+          "Central Page &amp; URL Service: built a multi-tier Redis-Caffeine caching layer processing 4,500+ QPS at sub-10ms P99 for 10M+ daily active users, plus a zero-code RBAC admin platform (GCP Pub/Sub + Bigtable) that compressed content rollout cycles by 30%.",
+          "Cross-Sell Gateway &amp; A/B Platform: built a Spring Boot microservice sustaining 3,000 QPS at sub-80ms with rate limiting across 5+ touchpoints, and a central A/B testing architecture spanning 20 gateways that compressed iteration cycles 3x — driving 210K+ credit cards and 50K+ Fixed Deposits.",
+          "Cohort Engine &amp; Intent Payments: built an Apache Airflow cohorting platform (1,700 QPS, sub-20ms) and a zero-deployment personalization service (sub-5ms); unified UPI intent payments across products, cutting payment drop 12%, and led the Axis Bank lending integration (36% of disbursals) with a dedup pipeline that cut late-stage rejections 30%.",
+          "Shipped an on-demand credit score feature reaching 6M+ users, powering the primary data pipeline for personal loan and credit card cross-sell strategies.",
         ],
+        stack: ["Java", "Spring Boot", "LLMs", "Redis", "Kafka", "Airflow", "GCP", "Bigtable"],
       },
       {
         date: "JUN 2023 — JAN 2024", org: "Flipkart Health Plus", badge: "+100K listings",
         role: "Software Development Engineer 1",
         bullets: [
-          "Onboarded 11 new category schemas and 100,000+ product listings.",
-          "Integrated a \"Best Price\" API, lifting purchase conversion by an estimated 8–12%.",
-          "Authored 15+ RESTful APIs for the Marketplace gateway, lowering order resolution time by 20%.",
+          "Expanded product catalog coverage by onboarding 11 new category schemas and adding 100,000+ product listings, increasing catalog depth for high-traffic search queries.",
+          "Accelerated user conversion by integrating a \"Best Price\" API into search and product pages, raising purchase conversion by an estimated 8–12% across eligible SKUs.",
+          "Authored 15+ RESTful APIs for the Marketplace gateway covering returns, shipment processing and order cancellations, lowering average order resolution time by 20%.",
+        ],
+        stack: ["Java", "Spring Boot", "REST APIs"],
+      },
+      {
+        date: "MAY 2022 — JUL 2022", org: "Flipkart Internet Pvt. Ltd.", badge: "-70% TASK TIME",
+        role: "Software Engineering Intern",
+        bullets: [
+          "Boosted developer productivity by building an internal UI for job scheduling APIs, slashing average scheduling task completion time by 70% and eliminating CLI dependency for 30+ engineers.",
+          "Strengthened system reliability by implementing exponential back-off retry logic for ZooKeeper lock acquisition, halving lock contention failures by 90%+ and raising distributed job success rate to 99.9%.",
+        ],
+        stack: ["Java", "ZooKeeper", "Internal Tooling"],
+      },
+    ],
+    moreItems: [
+      {
+        date: "SEP 2021 — JAN 2022", org: "PTCG India Pvt. Ltd.", badge: "50HRS/WK SAVED",
+        role: "Software Engineering Intern",
+        stack: ["Chatbots/NLP", "SMS/WhatsApp APIs"],
+        bullets: [
+          "Deployed an MVP conversational chatbot that engaged mortgage leads via SMS/WhatsApp on database entry, collected qualification data, and scheduled advisor appointments.",
+          "Saved mortgage advisors 50 hours/week and slashed lead response time from 24 hours to under 5 minutes.",
         ],
       },
       {
-        date: "2018 — 2023", org: "IIT Bhubaneswar", badge: "GPA 8.04/10",
-        role: "Dual Degree, B.Tech + M.Tech in Computer Science",
+        date: "MAY 2021 — JUL 2021", org: "HCL Technologies", badge: "+40% AWARENESS",
+        role: "Software Engineering Intern",
+        stack: ["IBM Watson", "HCL Compass", "Slack/MS Teams APIs"],
         bullets: [
-          "Internships: Flipkart Internet Pvt. Ltd. (2022) · PTCG India Pvt. Ltd. (2021) · HCL Technologies (2021).",
-          "AIR 1857 (JEE Mains) &amp; AIR 2357 (JEE Advanced), 2018 — top 1.3% of 1.1M candidates.",
+          "Integrated HCL Compass with IBM Watson Assistant and Discovery to deliver real-time change notifications across 5+ MS Teams and Slack channels.",
+          "Boosted incident awareness speed by 40% for 3 cross-functional engineering teams.",
         ],
       },
     ],
@@ -176,6 +208,8 @@ const SITE_DATA = {
     items: [
       { tag: "AWARD", title: "Engineering Excellence Award",
         description: "Recognized company-wide for a scalable A/B testing framework and a homepage revamp that drove engagement growth across 8+ product verticals." },
+      { tag: "ACADEMIC", title: "AIR 1857 (JEE Mains) &amp; AIR 2357 (JEE Advanced)",
+        description: "Ranked in the top 1.3% of 1.1 million candidates, 2018." },
       { tag: "COMPETITIVE", title: "Top 2,000 globally on HackerRank",
         description: "AIR 10 and AIR 19 in SICHO across two consecutive years." },
       { tag: "LEADERSHIP", title: "Secretary &amp; Governor, Nakshatra",

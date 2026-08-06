@@ -115,6 +115,7 @@ h1, h2, h3, h4 {
 /* ---------- BUTTONS ---------- */
 .btn {
   display: inline-block;
+  background: none;
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.08em;
@@ -241,33 +242,40 @@ h1, h2, h3, h4 {
   color: var(--fg-dim);
 }
 
-/* ---------- PROJECTS ---------- */
-.projects { display: flex; flex-direction: column; gap: 90px; }
-.project { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-.project.reverse .project-visual { order: 2; }
-.project-visual {
-  position: relative;
-  height: 320px;
-  border: 1px solid var(--border);
-  overflow: hidden;
+/* ---------- WORK GRID ---------- */
+.work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.work-col { display: flex; flex-direction: column; gap: 20px; }
+.work-card {
+  border: 1px solid var(--border); padding: 24px; cursor: pointer;
+  transition: border-color .2s ease, transform .2s ease, background .2s ease;
 }
-.viz { position: absolute; inset: 0; }
-.viz-1 { background: repeating-linear-gradient(45deg, #111 0 2px, #0a0a0a 2px 14px); }
-.viz-2 { background: radial-gradient(circle at 30% 30%, rgba(57,255,20,0.12), transparent 60%), repeating-linear-gradient(0deg, #111 0 1px, transparent 1px 22px); }
-.viz-3 { background: repeating-linear-gradient(90deg, #111 0 1px, #050505 1px 30px), repeating-linear-gradient(0deg, #111 0 1px, transparent 1px 30px); }
-.viz-4 { background: radial-gradient(circle at 70% 70%, rgba(57,255,20,0.1), transparent 55%), repeating-linear-gradient(135deg, #111 0 2px, #0a0a0a 2px 16px); }
-.viz-tag {
-  position: absolute; top: 16px; left: 16px;
-  font-size: 12px; color: var(--accent); letter-spacing: 0.08em;
-}
+.work-card:hover { border-color: var(--accent); background: var(--bg-alt); transform: translateY(-3px); }
+.work-card-meta { font-size: 11px; letter-spacing: 0.08em; color: var(--fg-dim); text-transform: uppercase; margin-bottom: 10px; }
+.work-card h4 { font-size: 18px; margin-bottom: 8px; }
+.work-card-brief { color: var(--fg-dim); font-size: 14px; margin-bottom: 14px; }
+.work-card-cta { font-size: 11px; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; }
+.work-more-btn { margin-top: 28px; }
+
+/* ---------- PROJECT META / STATS (reused inside modal) ---------- */
 .project-meta { font-size: 12px; letter-spacing: 0.08em; color: var(--fg-dim); display: flex; align-items: center; gap: 12px; margin-bottom: 16px; text-transform: uppercase; }
 .project-meta .rule { width: 40px; height: 1px; background: var(--fg-faint); }
-.project-body h3 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; }
-.project-body p { color: var(--fg-dim); font-size: 14px; margin-bottom: 24px; }
+.modal-box h3 { font-size: clamp(22px, 3vw, 28px); margin-bottom: 16px; }
+.modal-box .modal-desc { color: var(--fg-dim); font-size: 14px; margin-bottom: 24px; }
 .project-stats { display: flex; gap: 28px; border: 1px solid var(--border); padding: 18px; margin-bottom: 20px; flex-wrap: wrap; }
 .project-stats div { display: flex; flex-direction: column; gap: 4px; }
 .project-stats span { font-family: var(--display); font-weight: 700; font-size: 16px; color: var(--accent); }
 .project-stats small { font-size: 10px; color: var(--fg-dim); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ---------- MODAL ---------- */
+.modal-overlay { position: fixed; inset: 0; background: rgba(5,5,5,0.85); display: flex; align-items: center; justify-content: center; padding: 24px; z-index: 100; }
+.modal-overlay[hidden] { display: none; }
+.modal-box { position: relative; background: var(--bg-alt); border: 1px solid var(--border); max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 40px; }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; background: none; border: 1px solid var(--border);
+  color: var(--fg); font-size: 18px; line-height: 1; cursor: pointer;
+}
+.modal-close:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ---------- TIMELINE ---------- */
 .timeline { display: flex; flex-direction: column; }
@@ -283,6 +291,7 @@ h1, h2, h3, h4 {
 .tag-pill { font-size: 11px; color: var(--fg-dim); border: 1px solid var(--border); padding: 5px 10px; width: fit-content; }
 .timeline-content h3 { font-size: 20px; margin-bottom: 14px; }
 .timeline-content p { color: var(--fg-dim); font-size: 14px; margin: 8px 0; }
+.timeline-stack { margin-top: 14px; }
 
 /* ---------- ACHIEVEMENTS / WRITING ---------- */
 .writing-list { border-top: 1px solid var(--border); }
@@ -332,8 +341,7 @@ h1, h2, h3, h4 {
   .about-photo { aspect-ratio: 4 / 3; }
   .toolkit-grid { grid-template-columns: 1fr; }
   .toolkit-card, .toolkit-card:nth-child(2n) { border-right: none; }
-  .project { grid-template-columns: 1fr; }
-  .project.reverse .project-visual { order: 0; }
+  .work-grid { grid-template-columns: 1fr; }
   .timeline-item { grid-template-columns: 1fr; gap: 16px; }
   .form-row { grid-template-columns: 1fr; }
 }

@@ -74,18 +74,6 @@
     </div>
   </section>
 
-  <!-- SELECTED WORK -->
-  <section class="section" id="work">
-    <div class="container">
-      <p class="section-label reveal" id="work-label"></p>
-      <div class="section-head">
-        <h2 class="reveal" id="work-heading"></h2>
-      </div>
-
-      <div class="projects" id="projects"></div>
-    </div>
-  </section>
-
   <!-- TRAJECTORY -->
   <section class="section section-alt" id="trajectory">
     <div class="container">
@@ -95,6 +83,23 @@
       </div>
 
       <div class="timeline" id="timeline"></div>
+      <button class="btn btn-outline timeline-more-btn" id="trajectory-more-btn" type="button" hidden></button>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="section" id="work">
+    <div class="container">
+      <p class="section-label reveal" id="work-label"></p>
+      <div class="section-head">
+        <h2 class="reveal" id="work-heading"></h2>
+      </div>
+
+      <div class="work-grid reveal">
+        <div class="work-col" id="work-col-left"></div>
+        <div class="work-col" id="work-col-right"></div>
+      </div>
+      <button class="btn btn-outline work-more-btn" id="work-more-btn" type="button" hidden></button>
     </div>
   </section>
 
@@ -157,6 +162,13 @@
     <span id="footer-tagline"></span>
   </div>
 </footer>
+
+<div class="modal-overlay" id="project-modal" hidden>
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" type="button" aria-label="Close">&times;</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
 
 <script src="data.js"></script>
 <script src="script.js"></script>
