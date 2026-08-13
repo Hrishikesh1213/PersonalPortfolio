@@ -115,31 +115,87 @@ const SITE_DATA = {
       },
       {
         year: "2024", tag: "SPRING BOOT", tagId: "P-03",
-        title: "Cross-Sell Gateway &amp; A/B Platform",
-        brief: "Spring Boot cross-sell microservice with a central A/B testing platform spanning 20+ gateways.",
-        description: "High-throughput microservice for in-app cross-selling with a central A/B testing architecture " +
-          "spanning 20+ gateways — driving adoption of core financial products and an on-demand credit " +
-          "score feature for 6M+ users.",
+        title: "Cross-Sell Gateway &amp; Template Service",
+        brief: "Spring Boot cross-sell microservice plus a zero-deployment templating service for app &amp; CRM content.",
+        description: "High-throughput in-app cross-sell microservice with user-level personalization and rate " +
+          "limiting across 5+ touchpoints, alongside a zero-deployment templating service that lets " +
+          "product teams configure app/CRM content with zero engineering dependency.",
         stats: [
-          { value: "3,000 QPS", label: "SUSTAINED" },
-          { value: "210K+", label: "CREDIT CARDS ISSUED" },
-          { value: "6M+", label: "USERS ON CREDIT SCORE" },
+          { value: "3,000 QPS", label: "AT SUB-80MS" },
+          { value: "< 5ms", label: "TEMPLATE LATENCY" },
+          { value: "100%", label: "ENG. DEPENDENCY REMOVED" },
         ],
-        pills: ["Spring Boot", "A/B Testing", "Rate Limiting"],
+        pills: ["Spring Boot", "Personalization", "Rate Limiting", "Templating"],
       },
       {
-        year: "2023", tag: "AIRFLOW · KAFKA", tagId: "P-04",
-        title: "Cohort Engine &amp; Intent Payments",
-        brief: "Airflow-based cohorting platform plus a unified UPI intent-payment flow across products.",
-        description: "Data platform on Apache Airflow aggregating raw events into segmented user cohorts, plus a " +
-          "unified UPI intent-payment flow across Credit Cards, Fixed Deposits and Flights in a single " +
-          "checkout — and the Axis Bank lending integration that followed.",
+        year: "2024", tag: "EXPERIMENTATION", tagId: "P-04",
+        title: "A/B Testing &amp; Experiment Platform",
+        brief: "Central experimentation architecture spanning the orchestrator and 20+ downstream gateways.",
+        description: "Central A/B testing architecture spanning the orchestrator and 20+ gateways, sustaining " +
+          "10K+ QPS and letting downstream services run data-driven content experiments on their own — " +
+          "compressing product iteration cycles.",
+        stats: [
+          { value: "10K+ QPS", label: "SUSTAINED" },
+          { value: "20+", label: "GATEWAYS COVERED" },
+          { value: "3x", label: "FASTER ITERATION" },
+        ],
+        pills: ["A/B Testing", "Experimentation", "Spring Boot"],
+      },
+      {
+        year: "2024", tag: "FINTECH", tagId: "P-05",
+        title: "Cards, Fixed Deposits &amp; Credit Score",
+        brief: "End-to-end onboarding for co-branded credit cards and Fixed Deposits, plus an on-demand credit score feature.",
+        description: "End-to-end, session-persistent onboarding journeys for co-branded credit cards and Fixed " +
+          "Deposits across multiple partner banks, plus an on-demand credit score feature powering the " +
+          "primary data pipeline for loan and card cross-sell.",
+        stats: [
+          { value: "210K+", label: "CREDIT CARDS ISSUED" },
+          { value: "50K+", label: "FIXED DEPOSITS" },
+          { value: "6M+", label: "USERS ON CREDIT SCORE" },
+        ],
+        pills: ["Payments", "Partner APIs", "Credit Cards", "Fixed Deposits"],
+      },
+      {
+        year: "2023", tag: "AIRFLOW · KAFKA", tagId: "P-06",
+        title: "Cohort Engine, Intent Payments &amp; Journeys",
+        brief: "Airflow-based cohorting platform, an event-driven journey system, and a unified UPI intent-payment flow.",
+        description: "Data platform on Apache Airflow aggregating raw events into segmented user cohorts powering " +
+          "3 downstream gateways, an event-driven system decomposing events across specialized state " +
+          "machines, and a unified UPI intent-payment flow across Credit Cards, Fixed Deposits and Flights.",
         stats: [
           { value: "1,700 QPS", label: "AT SUB-20MS" },
+          { value: "3", label: "GATEWAYS POWERED" },
           { value: "12%", label: "LOWER PAYMENT DROP" },
-          { value: "36%", label: "OF LOAN DISBURSALS" },
         ],
-        pills: ["Airflow", "Kafka", "UPI"],
+        pills: ["Airflow", "Kafka", "Event-Driven", "UPI"],
+      },
+      {
+        year: "2023", tag: "LENDING", tagId: "P-07",
+        title: "Lender Integration",
+        brief: "Axis Bank lending integration plus a cross-lender dedup pipeline cutting late-stage rejections.",
+        description: "Spearheaded the integration of Axis Bank into the core lending platform — now accounting for " +
+          "36% of total loan disbursals — and introduced a cross-lender deduplication pipeline that " +
+          "trimmed late-stage application rejections.",
+        stats: [
+          { value: "36%", label: "OF LOAN DISBURSALS" },
+          { value: "30%", label: "FEWER LATE-STAGE REJECTIONS" },
+          { value: "Multi-lender", label: "ORCHESTRATION" },
+        ],
+        pills: ["Lending", "Axis Bank", "Dedup Pipeline"],
+      },
+      {
+        year: "2023", tag: "MARKETPLACE", tagId: "P-08",
+        title: "Flipkart Health Plus — Catalog &amp; Marketplace APIs",
+        brief: "Catalog expansion, a \"Best Price\" conversion feature, and RESTful APIs for the Marketplace gateway.",
+        description: "Expanded product catalog coverage with 11 new category schemas and 100,000+ listings, " +
+          "integrated a \"Best Price\" API into search and PDP to surface the optimal coupon at checkout, " +
+          "and authored RESTful APIs for the Marketplace gateway covering returns, shipments and cancellations.",
+        stats: [
+          { value: "100K+", label: "LISTINGS ADDED" },
+          { value: "8–12%", label: "CONVERSION LIFT" },
+          { value: "15+", label: "APIS SHIPPED" },
+        ],
+        pills: ["Java", "Spring Boot", "REST APIs", "Catalog"],
       },
     ],
   },
@@ -155,9 +211,11 @@ const SITE_DATA = {
         bullets: [
           "AI-Powered Figma-to-Code Platform: designed a multi-agent LLM system with a Figma MCP server that autonomously generates API contracts, backend boilerplate and frontend UI, cutting design-to-PR handoff from 4+ days to under 2 and shortening the widget lifecycle by 60%.",
           "Central Page &amp; URL Service: built a multi-tier Redis-Caffeine caching layer processing 4,500+ QPS at sub-10ms P99 for 10M+ daily active users, plus a zero-code RBAC admin platform (GCP Pub/Sub + Bigtable) that compressed content rollout cycles by 30%.",
-          "Cross-Sell Gateway &amp; A/B Platform: built a Spring Boot microservice sustaining 3,000 QPS at sub-80ms with rate limiting across 5+ touchpoints, and a central A/B testing architecture spanning 20 gateways that compressed iteration cycles 3x — driving 210K+ credit cards and 50K+ Fixed Deposits.",
-          "Cohort Engine &amp; Intent Payments: built an Apache Airflow cohorting platform (1,700 QPS, sub-20ms) and a zero-deployment personalization service (sub-5ms); unified UPI intent payments across products, cutting payment drop 12%, and led the Axis Bank lending integration (36% of disbursals) with a dedup pipeline that cut late-stage rejections 30%.",
-          "Shipped an on-demand credit score feature reaching 6M+ users, powering the primary data pipeline for personal loan and credit card cross-sell strategies.",
+          "Cross-Sell Gateway &amp; Template Service: built a Spring Boot microservice sustaining 3,000 QPS at sub-80ms with rate limiting across 5+ touchpoints, plus a zero-deployment templating service (sub-5ms) letting product teams configure app/CRM content with zero engineering dependency.",
+          "A/B Testing Platform: established a central experimentation architecture spanning the orchestrator and 20+ gateways, letting downstream services run data-driven experiments independently and compressing product iteration cycles by 3x.",
+          "Cards, Fixed Deposits &amp; Credit Score: drove adoption of core financial products — 210,000+ credit cards and 50,000+ Fixed Deposits — via session-persistent onboarding journeys and partner API integrations, and shipped an on-demand credit score feature reaching 6M+ users.",
+          "Cohort Engine &amp; Intent Payments: built an Apache Airflow cohorting platform (1,700 QPS, sub-20ms) powering 3 downstream gateways, plus a unified UPI intent-payment flow across Credit Cards, Fixed Deposits and Flights that cut payment drop 12%.",
+          "Lender Integration: spearheaded the Axis Bank integration into the core lending platform (36% of total loan disbursals) and introduced a cross-lender dedup pipeline that trimmed late-stage application rejections by 30%.",
         ],
         stack: ["Java", "Spring Boot", "LLMs", "Redis", "Kafka", "Airflow", "GCP", "Bigtable"],
       },
