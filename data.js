@@ -15,8 +15,8 @@ const SITE_DATA = {
     phoneHref: "tel:+919381567454",
     whatsappUrl: "https://wa.me/919381567454",
     linkedin: "https://www.linkedin.com/in/hrishikeshkarra1213/",
-    resumeViewUrl: "https://drive.google.com/file/d/1VmgD2ylhymhzfL0V_FdY5mh5bEYPIE5t/view?usp=sharing",
-    resumeDownloadUrl: "https://drive.google.com/uc?export=download&id=1VmgD2ylhymhzfL0V_FdY5mh5bEYPIE5t",
+    resumeViewUrl: "https://drive.google.com/file/d/1jXYmoP8tj9dJr0ZLVuIvDHi_qagbd_kU/view?usp=sharing",
+    resumeDownloadUrl: "https://drive.google.com/uc?export=download&id=1jXYmoP8tj9dJr0ZLVuIvDHi_qagbd_kU",
   },
 
   nav: [
